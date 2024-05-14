@@ -11,6 +11,15 @@ Class {
 	#tag : 'Objects'
 }
 
+{ #category : 'converting' }
+Country >> asRSPath [
+
+	^ (RSSVGPath new
+		   paint: (self color ifNil: [ Color random alpha: 0.1 ]);
+		   border: (RSBorder new paint: Color black);
+		   svgPath: self path) @ (RSPopup text: self name)
+]
+
 { #category : 'accessing' }
 Country >> color [
 	^ color
@@ -19,6 +28,11 @@ Country >> color [
 { #category : 'accessing' }
 Country >> color: aColor [ 
 	color := aColor
+]
+
+{ #category : 'accessing' }
+Country >> name [
+	^ name
 ]
 
 { #category : 'accessing' }

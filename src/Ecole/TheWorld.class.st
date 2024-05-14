@@ -14,11 +14,7 @@ TheWorld >> asCanvas [
 
 	| c |
 	c := RSCanvas new.
-	countries do: [ :p |
-		c addShape: (RSSVGPath new
-				 paint: p color;
-				 border: (RSBorder new paint: Color black);
-				 svgPath: p path) ].
+	countries do: [ :p | c addShape: p asRSPath ].
 	^ c
 ]
 
