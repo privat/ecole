@@ -61,5 +61,6 @@ TheWorld >> loadFile: aPath [
 	xml allElementsNamed: 'path' do: [ :p |
 		countries at: (p attributeAt: 'title') put: (Country new
 				 name: (p attributeAt: 'title');
+				 code: (p attributeAt: 'id');
 				 path: (p attributeAt: 'd')) ]
 ]

@@ -4,7 +4,9 @@ Class {
 	#instVars : [
 		'name',
 		'path',
-		'color'
+		'color',
+		'code',
+		'flag'
 	],
 	#category : 'Ecole-Objects',
 	#package : 'Ecole',
@@ -21,6 +23,16 @@ Country >> asRSPath [
 		model: self;
 		  @ (RSPopup);
 		  @ (RSHighlightable new highlightBorder: (RSBorder new paint: Color red; width: 5))
+]
+
+{ #category : 'accessing' }
+Country >> code [
+	^ code
+]
+
+{ #category : 'accessing' }
+Country >> code: aString [ 
+	code := aString
 ]
 
 { #category : 'accessing' }
