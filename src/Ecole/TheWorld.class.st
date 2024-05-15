@@ -9,6 +9,17 @@ Class {
 	#tag : 'Objects'
 }
 
+{ #category : 'accessing' }
+TheWorld class >> example: aPath [
+
+	| w |
+	w := TheWorld new loadFile: aPath.
+	(w countries at: 'Italy') color: Color green.
+	(w countries at: 'Canada') color: Color red.
+	(w countries at: 'France') color: Color blue.
+	^ w asCanvas @ RSCanvasController
+]
+
 { #category : 'actions api' }
 TheWorld >> asCanvas [
 
