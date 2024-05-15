@@ -17,7 +17,7 @@ TheWorld class >> defaultPath [
 { #category : 'examples' }
 TheWorld class >> example [
 
-	self example: self defaultPath
+	^ self example: self defaultPath
 ]
 
 { #category : 'accessing' }

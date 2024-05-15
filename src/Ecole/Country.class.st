@@ -64,7 +64,16 @@ Country >> flag [
 ]
 
 { #category : 'as yet unclassified' }
-Country >> inspectionContents [
+Country >> inspectionFlag [
+
+	<inspectorPresentationOrder: 1 title: 'Flag'>
+	^ SpImagePresenter new
+		  image: self flag;
+		  yourself
+]
+
+{ #category : 'as yet unclassified' }
+Country >> inspectionMap [
 	<inspectorPresentationOrder: 0 title: 'Map'>
 	| c |
 	c := RSCanvas new.
