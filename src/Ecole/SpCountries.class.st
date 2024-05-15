@@ -63,7 +63,7 @@ SpCountries >> onChange: anItem [
 	code text: anItem code.
 	flag image: anItem flag.
 	map canvas
-	clear;
+		clear;
 		addShape: anItem asRSPath;
 		zoomToFit
 ]
