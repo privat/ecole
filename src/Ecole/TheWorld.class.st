@@ -9,6 +9,17 @@ Class {
 	#tag : 'Objects'
 }
 
+{ #category : 'as yet unclassified' }
+TheWorld class >> defaultPath [
+	^ '/home/privat/Téléchargements/world.svg'
+]
+
+{ #category : 'examples' }
+TheWorld class >> example [
+
+	self example: self defaultPath
+]
+
 { #category : 'accessing' }
 TheWorld class >> example: aPath [
 
@@ -18,6 +29,11 @@ TheWorld class >> example: aPath [
 	(w countries at: 'Canada') color: Color red.
 	(w countries at: 'France') color: Color blue.
 	^ w asCanvas @ RSCanvasController
+]
+
+{ #category : 'installing' }
+TheWorld class >> load [
+	^ self new loadFile: self defaultPath
 ]
 
 { #category : 'actions api' }
