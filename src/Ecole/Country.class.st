@@ -46,6 +46,24 @@ Country >> color: aColor [
 ]
 
 { #category : 'as yet unclassified' }
+Country >> flag [
+
+	| request png |
+
+	flag ifNotNil: [ ^flag ].
+
+	request := ZnClient new.
+	request get: 'https://flagcdn.com/w320/' , code asLowercase , '.png'.
+	"checking success of request"
+	request isSuccess ifFalse: [ self halt  ].
+	"getting the png (as bytearray)"
+	png := request response contents.
+	
+	flag := ImageReadWriter formFromStream: (ReadStream on: png).
+	^flag
+]
+
+{ #category : 'as yet unclassified' }
 Country >> inspectionContents [
 	<inspectorPresentationOrder: 0 title: 'Map'>
 	| c |
