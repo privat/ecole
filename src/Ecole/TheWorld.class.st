@@ -41,7 +41,7 @@ TheWorld >> asCanvas [
 
 	| c |
 	c := RSCanvas new.
-	countries do: [ :p | c addShape: p asRSPath ].
+	countries do: [ :p | c addShape: p asRSPath @ (RSHighlightable red) ].
 	^ c
 ]
 

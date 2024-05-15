@@ -21,8 +21,7 @@ Country >> asRSPath [
 		  border: (RSBorder new paint: Color black);
 		  svgPath: self path;
 		model: self;
-		  @ (RSPopup);
-		  @ (RSHighlightable new highlightBorder: (RSBorder new paint: Color red; width: 5))
+		  @ (RSPopup)
 ]
 
 { #category : 'accessing' }
@@ -37,7 +36,10 @@ Country >> code: aString [
 
 { #category : 'accessing' }
 Country >> color [
-	^ color
+	color ifNotNil: [ ^ color].
+	
+	^ color := flag colors reject: [ :x | x isTransparent | (x = Color white) ]
+	
 ]
 
 { #category : 'accessing' }
@@ -74,14 +76,16 @@ Country >> inspectionFlag [
 
 { #category : 'as yet unclassified' }
 Country >> inspectionMap [
+
 	<inspectorPresentationOrder: 0 title: 'Map'>
 	| c |
-	c := RSCanvas new.
-	c addShape: (self asRSPath).
-		c zoomToFit.
-		^ SpRoassalInspectorPresenter new
-		canvas: c;
-		yourself
+	c := RSCanvas new
+		     addShape: self asRSPath;
+"		     zoomToFit;"
+		 @ RSCanvasController.
+	^ SpRoassalInspectorPresenter new
+		  canvas: c;
+		  yourself
 ]
 
 { #category : 'accessing' }
